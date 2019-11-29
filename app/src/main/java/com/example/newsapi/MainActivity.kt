@@ -43,10 +43,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun getNews() {
+    fun getNews()  {
 
         val apiClient = ApiClient
         var arcticles : List<Arcticle>
+        //var list = arrayListOf<Arcticle>()
         Log.d(TAG, "getNews")
         
         doAsync {
@@ -61,7 +62,8 @@ class MainActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<News>, t: Throwable) {
                 
                     toast("Please choose your request")
-                    Log.d(TAG, "onfailure")
+
+                    Log.d(TAG, t.printStackTrace().toString() )
                 }
 
                 override fun onResponse(call: Call<News>, response: Response<News>) {
@@ -69,10 +71,17 @@ class MainActivity : AppCompatActivity() {
                     arcticles = response.body()!!.arcticles
                     Log.d(TAG, "on Response")
                     
-                    for ( i in arcticles){
-                        var arcticle : Arcticle = arcticles.get(5)
+                    for ( i in arcticles.indices){
+                        var arcticle : Arcticle = arcticles.get(i)
                         var title : String = arcticle.title
-                        Log.d(TAG, title)
+                        var author : String = arcticle.author
+                        var description : String  = arcticle.description
+                        var url : String =  arcticle.url
+                        var urlToImage = arcticle.urlToImage
+                        var publishedAt : String  = arcticle.publishedAt
+                        var content  = arcticle.content
+                        Log.d(TAG, content)
+                        toast("good requstes")
 
 
 
