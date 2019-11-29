@@ -36,76 +36,22 @@ class MainActivity : AppCompatActivity() {
 
 
         Log.d(TAG, "oncreate")
-        getNews()
-
-    }
-
-
-
-
-    fun getNews()  {
-
-        val apiClient = ApiClient
-        var arcticles : List<Arcticle>
-        //var list = arrayListOf<Arcticle>()
-        Log.d(TAG, "getNews")
-        
-        doAsync {
-
-            Log.d(TAG, "doAsync")
-
-            val apiInterface : ApiInterface = apiClient.getApiClient().create(ApiInterface::class.java)
-            val call : Call<News> = apiInterface.getNewsSearch(sources, apiKey)
-
-            call.enqueue(object : Callback<News>{
-
-                override fun onFailure(call: Call<News>, t: Throwable) {
-                
-                    toast("Please choose your request")
-
-                    Log.d(TAG, t.printStackTrace().toString() )
-                }
-
-                override fun onResponse(call: Call<News>, response: Response<News>) {
-                
-                    arcticles = response.body()!!.arcticles
-                    Log.d(TAG, "on Response")
-                    
-                    for ( i in arcticles.indices){
-                        var arcticle : Arcticle = arcticles.get(i)
-                        var title : String = arcticle.title
-                        var author : String = arcticle.author
-                        var description : String  = arcticle.description
-                        var url : String =  arcticle.url
-                        var urlToImage = arcticle.urlToImage
-                        var publishedAt : String  = arcticle.publishedAt
-                        var content  = arcticle.content
-                        Log.d(TAG, content)
-                        toast("good requstes")
-
-
-
-
-                    }
-                
-                
-                }
-            })
-            
-
-
-
-            
-
-
-
-        }
-        
-        
 
 
     }
 
 
 
-}
+
+
+        
+        
+
+
+
+    }
+
+
+
+
+

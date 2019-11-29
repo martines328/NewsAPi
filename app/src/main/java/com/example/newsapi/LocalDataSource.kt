@@ -1,6 +1,7 @@
 package com.example.newsapi
 
 import android.content.Context
+import android.content.Entity
 import android.os.AsyncTask
 import com.example.newsapi.RoomDB.DAO
 import com.example.newsapi.RoomDB.NewsDataBase
@@ -30,13 +31,15 @@ open class LocalDataSource  constructor( title : String,  description : String, 
 
 
 
-    override fun doInBackground(vararg params: Void?): List<NewsEntity> {
+    override fun doInBackground(vararg params: Void?): List<NewsEntity>? {
 
 
 
 
 
-        return
+        return null
+
+
     }
 
 
