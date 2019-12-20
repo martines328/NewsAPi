@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "oncreate")
 
+        val remoteDataSource = RemoteDataSource()
+        remoteDataSource.execute()
+
 
     }
 
